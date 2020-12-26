@@ -7,7 +7,7 @@ class GamesService
   def fill_games_db
     # fill_game_genres_db
 
-    #Game.delete_all
+    Game.delete_all
     list_of_games
 
   end

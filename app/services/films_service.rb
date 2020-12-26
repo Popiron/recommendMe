@@ -8,7 +8,7 @@ class FilmsService
   def fill_films_db
     # fill_film_genres_db
 
-    #Film.delete_all
+    Film.delete_all
     all_films
 
   end

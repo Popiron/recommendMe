@@ -35,8 +35,7 @@ module RecommendMe
     config.api_only = true
 
     config.after_initialize do
-      FilmsService.new.fill_films_db
-      GamesService.new.fill_games_db
+      HardWorker.perform_in(5.minutes)
     end
 
   end
