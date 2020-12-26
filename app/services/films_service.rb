@@ -70,7 +70,7 @@ class FilmsService
            FilmGenre.find_by_genre_id(g).name
         },
          film_id:e['id'],
-         background_image: "https://image.tmdb.org/t/p/original"+e['backdrop_path'],
+         background_image: e['backdrop_path'] == nil ? "" : "https://image.tmdb.org/t/p/original"+e['backdrop_path'],
          rating:e['vote_average'],
          poster: "https://image.tmdb.org/t/p/original"+e["poster_path"]
         }
