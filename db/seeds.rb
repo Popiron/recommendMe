@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+FilmGenre.delete_all
 connection = ActiveRecord::Base.connection
 
 sql = File.read('db/film_genres.sql') # Change path and filename as necessary
@@ -17,6 +19,7 @@ ActiveRecord::Base.transaction do
   end
 end
 
+GameGenre.delete_all
 sql = File.read('db/game_genres.sql') # Change path and filename as necessary
 statements = sql.split(/;$/)
 statements.pop

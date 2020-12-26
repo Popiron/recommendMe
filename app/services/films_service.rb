@@ -67,7 +67,12 @@ class FilmsService
          release_date: e['release_date'],
          description:e['overview'],
          genres:e['genre_ids'].map {|g|
-           FilmGenre.find_by_genre_id(g).name
+           genre = FilmGenre.find_by_genre_id(g)
+           if genre==nil
+             genre.name
+           else
+             nil
+           end
         },
          film_id:e['id'],
          background_image: e['backdrop_path'] == nil ? "" : "https://image.tmdb.org/t/p/original"+e['backdrop_path'],
