@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: RecommendMe_production
-  username: RecommendMe
-  password: passw0rd
+  url: <%= ENV['DATABASE_URL'] %>
