@@ -44,6 +44,7 @@ class GamesService
   end
 
   def list_of_games(http="https://rawg-video-games-database.p.rapidapi.com/games",cnt=0)
+    fill_games_db
    url = URI(http)
 
     http = Net::HTTP.new(url.host, url.port)

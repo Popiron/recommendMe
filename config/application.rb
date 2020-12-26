@@ -34,9 +34,6 @@ module RecommendMe
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.after_initialize do
-      HardWorker.perform_in(5.minutes)
-    end
 
   end
 end
