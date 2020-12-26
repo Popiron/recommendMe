@@ -35,8 +35,8 @@ module RecommendMe
     config.api_only = true
 
     config.after_initialize do
-      FilmsService.new.fill_films_db
-      GamesService.new.fill_games_db
+      # FilmsService.new.fill_films_db
+      # GamesService.new.fill_games_db
     end
 
   end
