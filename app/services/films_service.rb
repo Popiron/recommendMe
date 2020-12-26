@@ -47,7 +47,6 @@ class FilmsService
   end
 
   def all_films(page=1)
-    fill_films_db
       url = URI("https://api.themoviedb.org/3/discover/movie?api_key=#{ENV['FILMS_API_KEY']}&language=en-US&sort_by=popularity.desc&page=#{page}")
 
       http = Net::HTTP.new(url.host, url.port)
