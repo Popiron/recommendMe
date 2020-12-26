@@ -5,3 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+connection = ActiveRecord::Base.connection
+
+sql = File.read('db/film_genres.sql') # Change path and filename as necessary
+statements = sql.split(/;$/)
+statements.pop
+
+ActiveRecord::Base.transaction do
+  statements.each do |statement|
+    connection.execute(statement)
+  end
+end
+
+sql = File.read('db/game_genres.sql') # Change path and filename as necessary
+statements = sql.split(/;$/)
+statements.pop
+
+ActiveRecord::Base.transaction do
+  statements.each do |statement|
+    connection.execute(statement)
+  end
+end
