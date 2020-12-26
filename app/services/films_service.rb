@@ -68,7 +68,7 @@ class FilmsService
          description:e['overview'],
          genres:e['genre_ids'].map {|g|
            genre = FilmGenre.find_by_genre_id(g)
-           if genre==nil
+           if genre!=nil
              genre.name
            else
              nil
